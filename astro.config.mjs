@@ -12,6 +12,7 @@ import sitemap from "@astrojs/sitemap";
   and leave it empty or use localhost URL. It won't break anything.
 */
 import tailwind from "@astrojs/tailwind";
+import vercel from "@astrojs/vercel/serverless";
 const SERVER_PORT = 3000;
 // the url to access your blog during local development
 const LOCALHOST_URL = `http://localhost:${SERVER_PORT}`;
@@ -26,11 +27,14 @@ if (isBuild) {
   BASE_URL = LIVE_URL;
 }
 
+
 // https://astro.build/config
 export default defineConfig({
   server: {
     port: SERVER_PORT
   },
   site: BASE_URL,
-  integrations: [sitemap(), tailwind()]
+  integrations: [sitemap(), tailwind()],
+  output: "server",
+  adapter: vercel()
 });
