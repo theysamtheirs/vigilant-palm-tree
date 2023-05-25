@@ -12,7 +12,7 @@ import sitemap from "@astrojs/sitemap";
   and leave it empty or use localhost URL. It won't break anything.
 */
 import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
+// import vercel from "@astrojs/vercel/serverless";
 const SERVER_PORT = 3000;
 // the url to access your blog during local development
 const LOCALHOST_URL = `http://localhost:${SERVER_PORT}`;
@@ -35,6 +35,6 @@ export default defineConfig({
   },
   site: BASE_URL,
   integrations: [sitemap(), tailwind()],
-  output: "server",
-  adapter: vercel()
+  // output: "server",
+  // adapter: vercel()
 });
